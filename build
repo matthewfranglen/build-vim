@@ -2,9 +2,30 @@
 
 set -euo pipefail
 
-cd ~/Programming/Vim/vim
+readonly COMMAND="$(readlink -f "${0}")"
+readonly DIR_NAME="$(dirname "${COMMAND}")"
+readonly BUILD_FOLDER="${DIR_NAME}/built"
+readonly VIM_PROJECT="https://github.com/vim/vim"
 
-make distclean
-./configure --prefix ~/Programming/Vim/built --with-features=huge --enable-perlinterp --enable-pythoninterp --enable-rubyinterp --enable-multibyte --enable-fontset
-make
-make install
+cd "${DIR_NAME}"
+
+echo "Installing dependencies"
+sudo apt-get install git
+sudo apt-get build-dep vim
+
+echo "Downloading source code"
+[ ! -e vim ] && git clone "${VIM_PROJECT}"
+(
+    cd vim
+    git pull --rebase
+)
+
+echo "Building vim to ${BUILD_FOLDER}"
+(
+    cd vim
+
+    make distclean
+    ./configure --prefix "${BUILD_FOLDER}" --with-features=huge --enable-perlinterp --enable-pythoninterp --enable-rubyinterp --enable-multibyte --enable-fontset
+    make
+    make install
+)
