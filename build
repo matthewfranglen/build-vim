@@ -14,7 +14,7 @@ sudo apt-get install git
 sudo apt-get build-dep vim
 
 echo "Downloading source code"
-[ ! -e vim ] && git clone "${VIM_PROJECT}"
+[ ! -e vim ] && git clone "${VIM_PROJECT}" vim
 (
     cd vim
     git pull --rebase
