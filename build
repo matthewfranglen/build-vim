@@ -9,9 +9,14 @@ readonly VIM_PROJECT="https://github.com/vim/vim"
 
 cd "${DIR_NAME}"
 
-echo "Installing dependencies"
-sudo apt-get install git
-sudo apt-get build-dep vim
+if [ ${#@} -ge 1 ] && [ "${1}" = "--no-sudo" ]
+then
+    echo "Not installing dependencies"
+else
+    echo "Installing dependencies"
+    sudo apt-get install git
+    sudo apt-get build-dep vim
+fi
 
 echo "Downloading source code"
 [ ! -e vim ] && git clone "${VIM_PROJECT}" vim

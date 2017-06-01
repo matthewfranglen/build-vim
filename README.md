@@ -16,6 +16,9 @@ following command:
 sudo apt-get build-dep vim
 ```
 
+This command will be run by the builder by default.
+If you wish to have a sudoless install then pass the `--no-sudo` flag.
+
 ### Usage
 
 ```
