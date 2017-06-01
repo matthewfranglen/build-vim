@@ -7,6 +7,15 @@ This will download the dependencies and source code.
 
 This was written for, and should work on, ubuntu linux.
 
+### Dependencies
+
+On a debian system you should be able to install all dependencies using the
+following command:
+
+```
+sudo apt-get build-dep vim
+```
+
 ### Usage
 
 ```
