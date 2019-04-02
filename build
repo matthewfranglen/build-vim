@@ -30,25 +30,25 @@ echo "Building vim to ${BUILD_FOLDER}"
     cd vim
 
     make distclean
-    ./configure                    \
-        --prefix "${BUILD_FOLDER}" \
-        --with-features=huge       \
-        --enable-cscope            \
-        --enable-fail-if-missing   \
-        --enable-fontset           \
-        --enable-gnome-check       \
-        --enable-gtk2-check        \
-        --enable-gui=auto          \
-        --enable-luainterp         \
-        --enable-multibyte         \
-        --enable-mzschemeinterp    \
-        --enable-perlinterp        \
-        --disable-pythoninterp     \
-        --enable-python3interp     \
-        --enable-rubyinterp        \
-        --enable-tclinterp         \
-        --enable-terminal          \
-        --enable-xim               \
+    ./configure                        \
+        --prefix "${BUILD_FOLDER}"     \
+        --with-features=huge           \
+        --enable-cscope                \
+        --enable-fail-if-missing       \
+        --enable-fontset               \
+        --enable-gnome-check           \
+        --enable-gtk2-check            \
+        --enable-gui=auto              \
+        --enable-luainterp             \
+        --enable-multibyte             \
+        --enable-mzschemeinterp        \
+        --enable-perlinterp            \
+        --disable-pythoninterp         \
+        --enable-python3interp=dynamic \
+        --enable-rubyinterp            \
+        --enable-tclinterp             \
+        --enable-terminal              \
+        --enable-xim                   \
         --with-x
     make
     make install
