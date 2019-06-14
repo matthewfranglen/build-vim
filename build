@@ -22,6 +22,8 @@ echo "Downloading source code"
 [ ! -e vim ] && git clone "${VIM_PROJECT}" vim
 (
     cd vim
+    git clean -xdf
+    git checkout -- .
     git pull --rebase
 )
 
