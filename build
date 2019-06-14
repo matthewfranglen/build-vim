@@ -43,7 +43,7 @@ echo "Building vim to ${BUILD_FOLDER}"
         --enable-multibyte             \
         --enable-mzschemeinterp        \
         --enable-perlinterp            \
-        --disable-pythoninterp         \
+        --enable-pythoninterp          \
         --enable-python3interp=dynamic \
         --enable-rubyinterp            \
         --enable-tclinterp             \
